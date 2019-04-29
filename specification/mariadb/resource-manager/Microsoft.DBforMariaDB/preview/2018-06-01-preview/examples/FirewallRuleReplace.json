@@ -3,7 +3,7 @@
         "subscriptionId": "00000000-1111-2222-3333-444444444444",
         "resourceGroupName": "firewallrulecrudtest-12",
         "serverName": "testserver",
-        "api-version": "2017-12-01",
+        "api-version": "2018-06-01-preview",
         "parameters": { 
             "values": [{
                 "name": "rule1 ",
@@ -28,18 +28,18 @@
       "body": {
         "value": [
           {
-            "id": "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/firewallrulecrudtest-12/providers/Microsoft.DBForMySql/servers/testserver/firewallRules/rule1",
+            "id": "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/firewallrulecrudtest-12/providers/Microsoft.DBForMariaDB/servers/testserver/firewallRules/rule1",
             "name": "rule1",
-            "type": "Microsoft.DBforMySql/servers/firewallRules",
+            "type": "Microsoft.DBForMariaDB/servers/firewallRules",
             "properties": {
               "startIpAddress": "0.0.0.0",
               "endIpAddress": "100.0.0.0"
             }
           },
           {
-            "id": "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/firewallrulecrudtest-12/providers/Microsoft.DBForMySql/servers/testserver/firewallRules/rule2",
+            "id": "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/firewallrulecrudtest-12/providers/Microsoft.DBForMariaDB/servers/testserver/firewallRules/rule2",
             "name": "rule2",
-            "type": "Microsoft.DBforMySql/servers/firewallRules",
+            "type": "Microsoft.DBForMariaDB/servers/firewallRules",
             "properties": {
               "startIpAddress": "110.0.0.0",
               "endIpAddress": "111.0.0.0"

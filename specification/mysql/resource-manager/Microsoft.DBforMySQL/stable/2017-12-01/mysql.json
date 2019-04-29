@@ -545,7 +545,7 @@
           "FirewallRules"
         ],
         "description": "Replaces all firewall rules on the server.",
-        "operationId": "FirewallRules_Write",
+        "operationId": "FirewallRules_Replace",
         "parameters": [
           {
             "$ref": "#/parameters/ResourceGroupParameter"
@@ -588,7 +588,6 @@
           }
         }
       }
-
     },
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforMySQL/servers/{serverName}/virtualNetworkRules/{virtualNetworkRuleName}": {
       "get": {
@@ -1388,6 +1387,26 @@
       },
       "x-ms-azure-resource": true
     },
+    "ProxyResourceWithWritableNames": {
+      "description": "Resource properties.",
+      "properties": {
+        "id": {
+          "readOnly": true,
+          "type": "string",
+          "description": "Resource ID"
+        },
+        "name": {
+          "type": "string",
+          "description": "Resource name."
+        },
+        "type": {
+          "readOnly": true,
+          "type": "string",
+          "description": "Resource type."
+        }
+      },
+      "x-ms-azure-resource": true
+    },
     "TrackedResource": {
       "description": "Resource properties including location and tags for track resources.",
       "properties": {
@@ -1491,6 +1510,18 @@
           "type": "integer",
           "format": "int32",
           "description": "Max storage allowed for a server."
+        },
+        "storageAutogrow" : {
+          "type": "string",
+          "description": "Enable Storage Auto Grow.",
+          "enum": [
+            "Enabled",
+            "Disabled"
+          ],
+          "x-ms-enum": {
+            "name": "StorageAutogrow",
+            "modelAsString": true
+          }
         }
       },
       "description": "Storage Profile properties of a server"
@@ -1782,7 +1813,7 @@
       },
       "allOf": [
         {
-          "$ref": "#/definitions/ProxyResource"
+          "$ref": "#/definitions/ProxyResourceWithWritableNames"
         }
       ],
       "required": [
@@ -1801,6 +1832,18 @@
         }
       },
       "description": "A list of firewall rules."
+    },
+    "FirewallRuleList": {
+      "description": "A list of server firewall rules.",
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/FirewallRule"
+          }
+        }
+      }
     },
     "VirtualNetworkRuleProperties": {
       "description": "Properties of a virtual network rule.",
